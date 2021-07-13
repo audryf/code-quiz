@@ -13,53 +13,71 @@
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <div class="row justify-content-around">
-                <div class="col-md-3">
-                    <a href="./highscores.html">View Highscores</a>
+    <div id="to-hide">
+        <header>
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-md-3">
+                        <a href="./highscores.html">View Highscores</a>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <h1>Welcome to JavaScript Coding Quiz!</h1>
+                    </div>
+                    <div class="col-md-2 offset-md-1">
+                        <button type="button" id="startButton" class="btn btn-success">Start Quiz</button>
+                    </div>
                 </div>
-                <div class="col-md-6 text-center">
-                    <h1>Welcome to JavaScript Coding Quiz!</h1>
-                </div>
-                <div class="col-md-2 offset-md-1">
-                    <button type="button" class="btn btn-success">Start Quiz</button>
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <p>"May the odds be ever in your favor."</p>
+                    </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-6 text-center">
-                    <p>"May the odds be ever in your favor."</p>
+        </header>
+        <br>
+        <br>
+        <div id="instructions">
+            <div class="container">
+                <div class="row">
+                    <h2>Instructions</h2>
+                </div>
+                <div class="row">
+                    <ul>
+                        <li>
+                            Once you click the "Start Quiz" button, your time will start at 60 seconds.
+                        </li>
+                        <li>
+                            If you choose the wrong answer,
+                            you will be deducted 10 seconds.
+                        </li>
+                        <li>
+                            At the end, the amount of time you have left will be your score.
+                        </li>
+                        <li>
+                            Then, enter your initials to save and view the highscores!
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-    </header>
-    <br>
-    <br>
-    <main>
-        <div class="container">
-            <div class="row">
-                <h2>Instructions</h2>
-            </div>
-            <div class="row">
-                <ul>
-                    <li>
-                        Once you click the "Start Quiz" button, your time will start at 60 seconds.
-                    </li>
-                    <li>
-                        If you choose the wrong answer,
-                        you will be deducted 10 seconds.
-                    </li> 
-                    <li>
-                        At the end, the amount of time you have left will be your score.
-                    </li>
-                    <li>
-                        Then, enter your initials to save and view the highscores!
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </main>
-
+    </div>
+    <div id="question-container" class="hide">
+        <h4 id="questions">
+            Questions
+        </h4>
+        <button class="choices">
+            Choice 1
+        </button>
+        <button class="choices">
+            Choice 2
+        </button>
+        <button class="choices">
+            Choice 3
+        </button>
+        <button class="choices">
+            Choice 4
+        </button>
+    </div>
     <script src="./assets/js/script.js"></script>
 </body>
 
