@@ -13,19 +13,52 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-            <header>
-                <h1>Welcome to JavaScript Coding Quiz!</h1>
-                <p>"May the odds be ever in your favor."</p>
-                <button type="button" class="btn btn-success">Start Quiz</button>
-                <a href="">View Highscores</p>
-            </header>
+    <header>
+        <div class="container">
+            <div class="row justify-content-around">
+                <div class="col-md-3">
+                    <a href="./highscores.html">View Highscores</a>
+                </div>
+                <div class="col-md-6 text-center">
+                    <h1>Welcome to JavaScript Coding Quiz!</h1>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <button type="button" class="btn btn-success">Start Quiz</button>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <p>"May the odds be ever in your favor."</p>
+                </div>
             </div>
         </div>
-    </div>
-
+    </header>
+    <br>
+    <br>
+    <main>
+        <div class="container">
+            <div class="row">
+                <h2>Instructions</h2>
+            </div>
+            <div class="row">
+                <ul>
+                    <li>
+                        Once you click the "Start Quiz" button, your time will start at 60 seconds.
+                    </li>
+                    <li>
+                        If you choose the wrong answer,
+                        you will be deducted 10 seconds.
+                    </li> 
+                    <li>
+                        At the end, the amount of time you have left will be your score.
+                    </li>
+                    <li>
+                        Then, enter your initials to save and view the highscores!
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
 
     <script src="./assets/js/script.js"></script>
 </body>
