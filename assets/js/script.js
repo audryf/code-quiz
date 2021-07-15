@@ -16,33 +16,59 @@ var quizQuestions = [
         question: "What is a code block?",
         choices: ["Data in an application at a specific point in time", "A list of data", "Info that a user enters into a program", "The code between curly braces"],
         answer: "The code between curly braces"
+    },
+    {
+        question: "How do you think you did?",
+        choices: ["Great", "Not so great", "I don't know", "This is the end!"],
+        answer: "This is the end!"
     }
 ]
 
 var timeLeft = 61
-var displayTime = document.createElement("div");
-var show = document.getElementById("question-container");
+var displayTime = document.createElement("div")
+var showQuestions = document.getElementById("question-container")
+var showScores = document.getElementById("highscores-container")
+var initials = document.getElementById("initials")
+var scoresContainer = document.getElementById("scores-container")
+var gameScore = document.getElementById("game-score")
+var startButton = document.getElementById("startButton")
+var submitButton = document.getElementById("submit")
 
+
+localStorage.getItem("initials");
 
 var displayQuestions = function (currentQuestion) {
     var questionsEl = document.getElementById("questions");
     var choicesEl = document.getElementsByClassName("choices");
     console.log(currentQuestion);
-    
+
     questionsEl.textContent = quizQuestions[currentQuestion].question;
     for (var i = 0; i < choicesEl.length; i++) {
         choicesEl[i].innerHTML = quizQuestions[currentQuestion].choices[i];
-        
-        choicesEl[i].addEventListener("click", function(event) {
+
+        choicesEl[i].addEventListener("click", function (event) {
             // User chooses their answer
             var clicked = event.target.innerHTML;
-            // If the answer is correct, then display 'correct' and show next question  
-            if (clicked != quizQuestions[currentQuestion].answer && currentQuestion < (quizQuestions.length -1)) {
-                console.log("wrong");
-                timeLeft = timeLeft - 10;
-                currentQuestion++;
-                displayQuestions(currentQuestion);
-            } 
+            
+            if (currentQuestion < (quizQuestions.length - 1)) {
+                if (clicked === quizQuestions[currentQuestion].answer) {
+                    console.log("correct");
+                    currentQuestion++;
+                    displayQuestions(currentQuestion);
+                };
+            };
+
+            if (currentQuestion === (quizQuestions.length - 1)) {
+                showQuestions.classList.toggle("hide");
+                var score = document.createElement("div");
+                // score.setAttribute(timeLeft);
+                score.textContent = "Your score is " + timeLeft;
+                gameScore.appendChild(score);
+                scoresContainer.classList.toggle("hide");
+                clearInterval(timer);
+            };
+
+
             
         });
     };
@@ -54,26 +80,29 @@ var startQuiz = function () {
     var hiddenEl = document.getElementById("to-hide");
     hiddenEl.classList.add("hide");
     var currentQuestion = 0
-    
-    show.classList.toggle("hide");
+
+    showQuestions.classList.toggle("hide");
     displayQuestions(currentQuestion);
- 
+
 };
 
- // Timer will display and start counting down from 60 seconds
- var timer = setInterval(function(){ 
+// Timer will display and start counting down from 60 seconds
+var timer = setInterval(function () {
     timeLeft--;
     displayTime.textContent = "Time Left: " + timeLeft;
-    show.appendChild(displayTime);
-    
+    showQuestions.appendChild(displayTime);
+
     // console.log(timeLeft);
     if (timeLeft === 0) {
         clearInterval(timer);
         // show.classList.toggle("hide");
-    } 
+    }
 }, 1000);
 
 // Click the start button
-var startButton = document.getElementById("startButton");
 startButton.addEventListener("click", startQuiz);
 
+// Submit highscore
+submitButton.addEventListener("click", function() {
+    localStorage.setItem(initials, timeLeft);
+});

@@ -18,7 +18,7 @@
             <div class="container">
                 <div class="row justify-content-around">
                     <div class="col-md-3">
-                        <a href="./highscores.html">View Highscores</a>
+
                     </div>
                     <div class="col-md-6 text-center">
                         <h1>Welcome to JavaScript Coding Quiz!</h1>
@@ -77,6 +77,22 @@
         <button class="choices">
             Choice 4
         </button>
+    </div>
+    <!-- This should be where they enter their initials and see their score -->
+    <div id="scores-container" class="hide">
+        <h4 id="game-score"></h4>
+        <form>
+            <input id="initials" type="text">
+            Enter your initials to save your score!
+            </input>
+            <button id="submit" class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div id="highscores-container" class="hide">
+        <h4 id="highscores">Highscores</h4>
+
+
     </div>
     <script src="./assets/js/script.js"></script>
 </body>
