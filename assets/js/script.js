@@ -33,7 +33,7 @@ var scoresContainer = document.getElementById("scores-container")
 var gameScore = document.getElementById("game-score")
 var startButton = document.getElementById("startButton")
 var submitButton = document.getElementById("submit")
-
+var highscores = document.getElementById("highscores");
 
 localStorage.getItem("initials");
 
@@ -104,5 +104,9 @@ startButton.addEventListener("click", startQuiz);
 
 // Submit highscore
 submitButton.addEventListener("click", function() {
-    localStorage.setItem(initials, timeLeft);
+    localStorage.setItem(JSON.stringify(initials.value), timeLeft);
+    var scoreList = localStorage.getItem(JSON,parse(initials.value), timeLeft);
+    scoreList = document.createElement("<div>");
+    highscores.appendChild(scoreList);
+    showScores.classList.toggle("hide");
 });
