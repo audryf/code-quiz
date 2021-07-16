@@ -105,7 +105,7 @@ startButton.addEventListener("click", startQuiz);
 // Submit highscore
 submitButton.addEventListener("click", function() {
     localStorage.setItem(JSON.stringify(initials.value), timeLeft);
-    var scoreList = localStorage.getItem(JSON,parse(initials.value), timeLeft);
+    var scoreList = localStorage.getItem(JSON.parse(initials));
     scoreList = document.createElement("<div>");
     highscores.appendChild(scoreList);
     showScores.classList.toggle("hide");
